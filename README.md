@@ -15,10 +15,19 @@
 3. [`docs/经验块规格.md`](docs/经验块规格.md) — 经验块的字段、动作、优先级；
 4. [`docs/决策日志.md`](docs/决策日志.md) — 实现过程中定下的细节，每条都可被推翻。
 
+## 架构一览
+
+- [架构图](docs/架构图.md) — 一次问答的数据流、一条经验的状态机（Mermaid，GitHub 直接渲染）
+- [数据模型](docs/schema/experience.schema.json) — 经验块的 JSON Schema
+- [本机接口](docs/API.md) — 面板用的 HTTP 接口（只监听 127.0.0.1，无鉴权）
+
 ## 里面有什么
 
 **正式文档**
 
+- `docs/架构图.md` — 数据流与状态机
+- `docs/API.md` — 本机 HTTP 接口
+- `docs/schema/experience.schema.json` — 经验块 JSON Schema
 - `docs/术语与技术说明.md` — 术语表 + 8 条不变量
 - `docs/分类与使用时机.md` — 分区规则、查库判定、ingest 与 consult
 - `docs/经验块规格.md` — 字段、五动作、账与优先级、三档模式

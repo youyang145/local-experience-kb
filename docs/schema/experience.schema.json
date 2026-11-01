@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/youyang145/dsh-knowledge-base/schema/experience.schema.json",
+  "title": "经验块（ExperienceBlock）",
+  "description": "一条经验的最小结构。实际存储是带 YAML 头的 Markdown 文件，这里描述头里的字段。",
+  "type": "object",
+  "required": ["id", "type", "domain", "kind", "claim", "status", "tier", "lineage", "accounting"],
+  "additionalProperties": true,
+  "properties": {
+    "id": { "type": "string", "pattern": "^k[0-9]{6}[a-z0-9]{6}$", "description": "创建时刻 + 标题 + 盐的多因素 hash" },
+    "type": { "const": "experience" },
+    "kind": { "enum": ["insight", "fusion", "transfer"], "description": "自创 / 融合 / 跨域派生" },
+    "title": { "type": "string" },
+    "claim": { "type": "string", "description": "一句话判断，可复用的方法或结论" },
+    "scope": { "type": "string", "description": "适用领域与条件" },
+    "limits": { "type": "string", "description": "什么情况下不成立" },
+    "domain": { "type": "string", "pattern": "^[^/]+(/[^/]+)?$", "description": "分区/主题，两级" },
+    "status": { "enum": ["candidate", "verified", "refuted"] },
+    "tier": { "enum": ["probation", "main"], "description": "小经验区 / 主库" },
+    "lineage": {
+      "type": "object",
+      "required": ["fused_from", "derived_from", "superseded_by", "refuted_by"],
+      "additionalProperties": false,
+      "properties": {
+        "fused_from": { "type": "array", "items": { "type": "string" } },
+        "derived_from": { "type": "array", "items": { "type": "string" } },
+        "superseded_by": { "type": "string" },
+        "refuted_by": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "trust": { "enum": ["external", "verified", "internal"], "description": "来源信任级别（R1 落地）" },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": { "type": "string" },
+        "captured_at": { "type": "string", "format": "date-time" },
+        "channel": { "type": "string" }
+      }
+    },
+    "accounting": {
+      "type": "object",
+      "required": ["used", "succeeded", "occurrences", "refined", "human_vote", "pinned"],
+      "additionalProperties": false,
+      "properties": {
+        "used": { "type": "integer", "minimum": 0 },
+        "succeeded": { "type": "integer", "minimum": 0 },
+        "occurrences": { "type": "integer", "minimum": 0, "description": "复现：同一问题又出现" },
+        "refined": { "type": "integer", "minimum": 0, "description": "补充：被追加条件或证据" },
+        "human_vote": { "type": "integer" },
+        "pinned": { "type": "boolean" },
+        "last_seen_at": { "type": "string", "format": "date-time" },
+        "last_used_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "modified_at": { "type": "string", "format": "date-time" },
+    "version": { "type": "integer", "minimum": 1 },
+    "editor": { "type": "string" },
+    "source": { "type": "string" }
+  }
+}
