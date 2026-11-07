@@ -85,7 +85,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 
 **给实现者**
 
-- [MCP 工具契约](docs/规范/MCP工具契约.md) — 给其他 Agent 的接口规范（specVersion 1.0）
+- [MCP 工具契约](docs/spec/mcp-tool-contract.md) — 给其他 Agent 的接口规范（specVersion 1.0）
 - [一致性清单](docs/一致性清单.md) — 换语言重写时，七条自测对齐行为
 - [给 AI 的用法](docs/给AI的用法.md) — 模型第一次接触这个库时的操作手册
 - [宿主接入](docs/宿主接入.md) — 别的宿主怎么接：常驻指令 + 检索工具两个接入点
