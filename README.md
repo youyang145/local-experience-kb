@@ -1,6 +1,6 @@
 # 本地经验库 · 骨架
 
-> **参考实现（MVP）**：[youyang145/local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp)
+> **参考实现（MVP）**：[youyang145/local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp)`n> **DSH 插件**：[youyang145/dsh-plugin-local-kb](https://github.com/youyang145/dsh-plugin-local-kb)
 > 那边是能跑的代码；这个仓库是设计与规范。
 
 > 一套本地优先的经验记忆骨架：知识可查、经验会记账、反例会警示、写入要人审。
