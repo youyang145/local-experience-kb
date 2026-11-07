@@ -90,6 +90,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 - [备份与恢复](docs/备份与恢复.md) — 整库打包、镜像覆盖、增量去重
 - DSH 宿主适配器：[dsh-plugin-local-kb](https://github.com/youyang145/dsh-plugin-local-kb) — 工具 + 挂件 + 每轮索引注入的参考接法
 - [三库联动与同步规矩](docs/联动与同步规矩.md) — 谁管什么、改完怎么同步、哪些不能碰
+- [参数与可调性](docs/参数与可调性.md) — 哪些能自己调、哪些是边界不能动
 - [本机接口](docs/API.md) — 面板用的 HTTP 接口
 - [数据模型](docs/schema/experience.schema.json) — 经验块 JSON Schema
 
@@ -134,3 +135,4 @@ Mem0、Zep、Letta、MemGuard 都在做 agent memory。这套骨架的差别在�
 
 - **设计文档与手稿**：CC BY 4.0。保留署名，允许转载、改编与商用；完整法律文本见 [`LICENSE`](LICENSE)。
 - **代码**：这个仓库里没有。以后发布时单独选协议，倾向 Apache-2.0（宽松、带专利授权，方便别人用）；如果那时更在意"防止闭源商用"，再评估 AGPL-3.0。
+
