@@ -87,7 +87,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 - [给 AI 的用法](docs/给AI的用法.md) — 模型第一次接触这个库时的操作手册
 - [宿主接入](docs/宿主接入.md) — 别的宿主怎么接：常驻指令 + 检索工具两个接入点
 - [备份与恢复](docs/备份与恢复.md) — 整库打包、镜像覆盖、增量去重
-- DSH 宿主适配器：[local-experience-kb-mvp/dsh-plugin](https://github.com/youyang145/local-experience-kb-mvp/tree/main/dsh-plugin) — 工具 + 挂件 + 每轮索引注入的参考接法
+- DSH 宿主适配器：[dsh-plugin-local-kb](https://github.com/youyang145/dsh-plugin-local-kb) — 工具 + 挂件 + 每轮索引注入的参考接法
 - [本机接口](docs/API.md) — 面板用的 HTTP 接口
 - [数据模型](docs/schema/experience.schema.json) — 经验块 JSON Schema
 
