@@ -51,6 +51,8 @@ Mcp-Session-Id: mcp-xxxxxxxx
 
 **把 `Mcp-Session-Id` 存下来**，后面每个请求都要带。
 
+> PowerShell 的 `Invoke-WebRequest` 取头要转字符串：`$sid = [string]$r.Headers["Mcp-Session-Id"]`；发请求时头名用小写 `mcp-session-id` 更稳。
+
 ### 第二步：看工具清单
 
 ```powershell
