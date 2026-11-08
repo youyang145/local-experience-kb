@@ -104,6 +104,36 @@ const hit = await rpc('tools/call', { name: 'kb_consult', arguments: { query: '�
 console.log(hit.content?.[0]?.text)
 ```
 
+## 3. 连上了吗？能不能用？
+
+别猜，按顺序看这四个信号：
+
+| 检查 | 期望结果 | 说明 |
+|---|---|---|
+| `initialize` | 响应头有 `Mcp-Session-Id`，`result.serverInfo.name` 是 `local-experience-kb` | 有这两个就算握手成功 |
+| `ping` | `{"jsonrpc":"2.0","id":N,"result":{}}` | 最轻的一次往返，适合探活 |
+| `tools/list` | `tools` 里有 4 个工具 | 有清单说明会话有效 |
+| `kb_index` | 文本里有 `本地知识库：N 块` | **N = 0 说明库是空的，不是没连上** |
+| `kb_consult` | 返回"判定：查库/不查"+ 分区目录 | 零命中也有两种提示，说明渠道是通的 |
+
+最小自检（Node）：
+
+```js
+await rpc('ping')
+const idx = await rpc('tools/call', { name: 'kb_index', arguments: {} })
+console.log(idx.content[0].text.split('\n')[0])   // 本地知识库：N 块（知识 x，经验 y）
+```
+
+失败长什么样：
+
+| 你看到的 | 含义 |
+|---|---|
+| `ECONNREFUSED` | 服务没起（面板没开、7788 没起） |
+| HTTP 403 | MCP 开关没开 |
+| HTTP 405 | 用了 GET |
+| `-32602`「先 initialize」 | 会话头缺失或被客户端丢掉（PowerShell 见上） |
+| `本地知识库：0 块` | 连上了，但库是空的；不是连接失败 |
+
 ## 4. 四个工具
 
 | 工具 | 参数 | 写不写库 |
