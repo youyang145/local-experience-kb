@@ -20,6 +20,8 @@
 2. 服务端在响应头返回 `Mcp-Session-Id`，并分配连接编号 `E-001` 起；
 3. 之后所有请求都要带 `Mcp-Session-Id`，否则 `tools/call` 返回错误。
 
+`ping` 可用于探活：`{"jsonrpc":"2.0","id":1,"method":"ping"}` → 空 result。
+
 MCP 开关默认关闭；关闭时 **POST 请求返回 403**。非 POST 请求会先被方法检查拦成 405（405 优先级高于 403）。
 
 ## 工具
