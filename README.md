@@ -105,7 +105,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 
 ## 做到哪一步
 
-参考实现已经能跑：存块、检索、经验记账、提议与拍板、面板界面、MCP 接入，**40 项测试通过**。代码在 [local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp) 公开。
+参考实现已经能跑：存块、检索、经验记账、提议与拍板、面板界面、MCP 接入，**45 项测试通过**。代码在 [local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp) 公开。
 
 阶段简称：`R0` 存储与检索跑通，`M1`/`M2` 经验块与共判，`P1`/`P2` 知识类型与两级分区。
 
