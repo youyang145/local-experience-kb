@@ -142,7 +142,7 @@ console.log(idx.content[0].text.split('\n')[0])   // 本地知识库：N 块（�
 |---|---|---|
 | `kb_consult` | `{ query, limit? }` | 不写 |
 | `kb_index` | `{}` | 不写 |\n| `kb_read` | `{ ids }`，最多 3 条 | 不写 |
-| `kb_stage` | `{ title, text }`，一次最多 5 块 | 只写「待分区」收件箱 |
+| `kb_stage` | `{ title, text }`，一次最多 5 块，只收知识材料 | 只写「待分区」收件箱 |
 | `kb_recommend` | `{ id, action: "promote"\|"refute", reason }` | 只进「待拍板」 |
 
 主库的增删改、转正、推翻都只能由人在面板做。`kb_recommend` 只是提名，AI 不执行。
