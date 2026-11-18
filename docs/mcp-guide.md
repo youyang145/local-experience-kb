@@ -51,6 +51,8 @@ Mcp-Session-Id: mcp-xxxxxxxx
 
 **把 `Mcp-Session-Id` 存下来**，后面每个请求都要带。
 
+initialize 返回的 instructions 是运行时规矩（三级读取、写入边界、分区两级），每次连接下发一次；完整规范见 [分区与写入规范](分区与写入规范.md)。
+
 > PowerShell 的 `Invoke-WebRequest` 取头要转字符串：`$sid = [string]$r.Headers["Mcp-Session-Id"]`；发请求时头名用小写 `mcp-session-id` 更稳。
 
 ### 第二步：看工具清单
