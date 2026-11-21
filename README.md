@@ -22,6 +22,24 @@
 
 所以这个仓库不是"又一个知识库软件"，而是一份**可以被别的宿主拿去实现的骨架**：照着规范做，行为能对齐；不照着做，它就只是一堆文档。
 
+## 版本对照
+
+| 层 | 当前版本 | 对齐什么 |
+|---|---|---|
+| 骨架规范 | `spec-v1.1` | MCP 工具契约 `specVersion: 1.1`（含 `kb_read`） |
+| 参考实现 | `v0.3.2` | 48 项库测试 + 12 项端到端检查 |
+| DSH 插件 | `v0.16.2` | 6 个工具 + 每轮索引注入 |
+
+实现版本只说明"这一版验过规范"；**照哪一版实现，以骨架 tag `spec-v1.1` 为准**。改契约就升 `specVersion`，并补一个骨架 tag。
+
+## 先读哪三篇
+
+1. [设计哲学](docs/设计哲学.md) — 为什么这么设计，哪些是红线；
+2. [经验块规格](docs/经验块规格.md) — 一条知识/经验长什么样、怎么算成立；
+3. [一致性清单](docs/一致性清单.md) — 换语言重写时，怎么算兼容。
+
+其余文档按需翻，不用一次读完。
+
 ## 它想解决什么
 
 日常里最常见的三件事：
@@ -86,7 +104,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 
 **给实现者**
 
-- [MCP 工具契约](docs/spec/mcp-tool-contract.md) — 给其他 Agent 的接口规范（specVersion 1.0）
+- [MCP 工具契约](docs/spec/mcp-tool-contract.md) — 给其他 Agent 的接口规范（specVersion 1.1，含 kb_read）
 - [一致性清单](docs/一致性清单.md) — 换语言重写时，七条自测对齐行为
 - [给 AI 的用法](docs/给AI的用法.md) — 模型第一次接触这个库时的操作手册
 - [宿主接入](docs/宿主接入.md) — 别的宿主怎么接：常驻指令 + 检索工具两个接入点
@@ -161,5 +179,7 @@ Mem0、Zep、Letta、MemGuard 都在做 agent memory。这套骨架的差别在�
 ## 许可
 
 - **设计文档与手稿**：CC BY 4.0。保留署名，允许转载、改编与商用；完整法律文本见 [`LICENSE`](LICENSE)。
-- **代码**：这个仓库里没有。以后发布时单独选协议，倾向 Apache-2.0（宽松、带专利授权，方便别人用）；如果那时更在意"防止闭源商用"，再评估 AGPL-3.0。
+- **代码**：不在这个仓库，在两个配套仓：
+  - [local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp)：Apache-2.0；
+  - [dsh-plugin-local-kb](https://github.com/youyang145/dsh-plugin-local-kb)：Apache-2.0。
 
