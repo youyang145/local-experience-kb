@@ -45,6 +45,8 @@ MCP 开关默认关闭；关闭时 **POST 请求返回 403**。非 POST 请求�
 
 DSH 插件在契约之外另有 `kb_record`（宿主侧记账），所以插件显示 7 个工具；MCP 端点仍是这 6 个。
 
+每个工具都带 MCP nnotations：eadOnlyHint / destructiveHint / idempotentHint / openWorldHint。读工具（consult/deep/index/read）是只读；stage/recommend 非只读、非破坏性；所有工具都不访问外网（openWorldHint: false）。
+
 ### `kb_consult`
 
 查库。只看该不该查、有哪些命中（简介），不读全文。
