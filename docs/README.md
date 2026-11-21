@@ -16,7 +16,7 @@
 ## 想查细节
 
 - [决策日志.md](决策日志.md) — 每个实现决定的编号与理由
-- [spec/mcp-tool-contract.md](spec/mcp-tool-contract.md) — 给其他 Agent 的接口规范（specVersion 1.1，含 kb_read）
+- [spec/mcp-tool-contract.md](spec/mcp-tool-contract.md) — 给其他 Agent 的接口规范（specVersion 1.2，含 kb_read / kb_deep）
 - [一致性清单.md](一致性清单.md) — 换语言重写时，七条自测对齐行为
 - [给AI的用法.md](给AI的用法.md) — 给模型看的操作手册
 - [宿主接入.md](宿主接入.md) — 适配器契约：常驻指令 + 检索工具
