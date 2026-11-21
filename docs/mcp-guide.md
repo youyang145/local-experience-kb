@@ -114,7 +114,7 @@ console.log(hit.content?.[0]?.text)
 |---|---|---|
 | `initialize` | 响应头有 `Mcp-Session-Id`，`result.serverInfo.name` 是 `local-experience-kb` | 有这两个就算握手成功 |
 | `ping` | `{"jsonrpc":"2.0","id":N,"result":{}}` | 最轻的一次往返，适合探活 |
-| `tools/list` | `tools` 里有 5 个工具 | 有清单说明会话有效 |
+| `tools/list` | `tools` 里有 6 个工具 | 有清单说明会话有效 |
 | `kb_index` | 文本里有 `本地知识库：N 块` | **N = 0 说明库是空的，不是没连上** |
 | `kb_consult` | 返回"判定：查库/不查"+ 分区目录 | 零命中也有两种提示，说明渠道是通的 |
 
@@ -136,11 +136,12 @@ console.log(idx.content[0].text.split('\n')[0])   // 本地知识库：N 块（�
 | `-32602`「先 initialize」 | 会话头缺失或被客户端丢掉（PowerShell 见上） |
 | `本地知识库：0 块` | 连上了，但库是空的；不是连接失败 |
 
-## 4. 五个工具
+## 4. 六个工具
 
 | 工具 | 参数 | 写不写库 |
 |---|---|---|
 | `kb_consult` | `{ query, limit? }` | 不写 |
+| `kb_deep` | `{ query, limit?, complete? }` | 不写 |
 | `kb_index` | `{}` | 不写 |\n| `kb_read` | `{ ids }`，最多 3 条 | 不写 |
 | `kb_stage` | `{ title, text }`，一次最多 5 块，只收知识材料 | 只写「待分区」收件箱 |
 | `kb_recommend` | `{ id, action: "promote"\|"refute", reason }` | 只进「待拍板」 |
