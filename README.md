@@ -27,7 +27,7 @@
 | 层 | 当前版本 | 对齐什么 |
 |---|---|---|
 | 骨架规范 | `spec-v1.1` | MCP 工具契约 `specVersion: 1.1`（含 `kb_read`） |
-| 参考实现 | `v0.3.2` | 48 项库测试 + 12 项端到端检查 |
+| 参考实现 | `v0.5.0` | 51 项库测试 + 12 项端到端检查 |
 | DSH 插件 | `v0.16.2` | 6 个工具 + 每轮索引注入 |
 
 实现版本只说明"这一版验过规范"；**照哪一版实现，以骨架 tag `spec-v1.1` 为准**。改契约就升 `specVersion`，并补一个骨架 tag。
@@ -124,7 +124,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 
 ## 做到哪一步
 
-参考实现已经能跑：存块、检索、经验记账、提议与拍板、面板界面、MCP 接入，**48 项测试通过**。代码在 [local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp) 公开。
+参考实现已经能跑：存块、检索、经验记账、提议与拍板、面板界面、MCP 接入，**51 项测试通过**。代码在 [local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp) 公开。
 
 阶段简称：`R0` 存储与检索跑通，`M1`/`M2` 经验块与共判，`P1`/`P2` 知识类型与两级分区。
 
