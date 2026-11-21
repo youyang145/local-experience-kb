@@ -26,11 +26,11 @@
 
 | 层 | 当前版本 | 对齐什么 |
 |---|---|---|
-| 骨架规范 | `spec-v1.1` | MCP 工具契约 `specVersion: 1.1`（含 `kb_read`） |
-| 参考实现 | `v0.5.0` | 51 项库测试 + 12 项端到端检查 |
-| DSH 插件 | `v0.16.2` | 6 个工具 + 每轮索引注入 |
+| 骨架规范 | `spec-v1.2` | MCP 工具契约 `specVersion: 1.2`（含 `kb_read` / `kb_deep`） |
+| 参考实现 | `v0.6.0` | 52 项库测试 + 12 项端到端检查 |
+| DSH 插件 | `v0.18.0` | 7 个工具 + 每轮索引注入 |
 
-实现版本只说明"这一版验过规范"；**照哪一版实现，以骨架 tag `spec-v1.1` 为准**。改契约就升 `specVersion`，并补一个骨架 tag。
+实现版本只说明"这一版验过规范"；**照哪一版实现，以骨架 tag `spec-v1.2` 为准**。改契约就升 `specVersion`，并补一个骨架 tag。
 
 ## 先读哪三篇
 
@@ -104,7 +104,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 
 **给实现者**
 
-- [MCP 工具契约](docs/spec/mcp-tool-contract.md) — 给其他 Agent 的接口规范（specVersion 1.1，含 kb_read）
+- [MCP 工具契约](docs/spec/mcp-tool-contract.md) — 给其他 Agent 的接口规范（specVersion 1.2，含 kb_read / kb_deep）
 - [一致性清单](docs/一致性清单.md) — 换语言重写时，七条自测对齐行为
 - [给 AI 的用法](docs/给AI的用法.md) — 模型第一次接触这个库时的操作手册
 - [宿主接入](docs/宿主接入.md) — 别的宿主怎么接：常驻指令 + 检索工具两个接入点
@@ -113,7 +113,7 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 - [三库联动与同步规矩](docs/联动与同步规矩.md) — 谁管什么、改完怎么同步、哪些不能碰
 - [参数与可调性](docs/参数与可调性.md) — 哪些能自己调、哪些是边界不能动
 - [分区与写入规范](docs/分区与写入规范.md) — 两级分区、谁能写、经验怎么算成立
-- [MCP 第三方接入指南](docs/mcp-guide.md) — initialize、会话头、五个工具、错误表
+- [MCP 第三方接入指南](docs/mcp-guide.md) — initialize、会话头、六个工具、错误表
 - [本机接口](docs/API.md) — 面板用的 HTTP 接口
 - [数据模型](docs/schema/experience.schema.json) — 经验块 JSON Schema
 
@@ -124,13 +124,13 @@ MCP 给其他 Agent 留了入口：能查、能往收件箱投材料、能提建
 
 ## 做到哪一步
 
-参考实现已经能跑：存块、检索、经验记账、提议与拍板、面板界面、MCP 接入，**51 项测试通过**。代码在 [local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp) 公开。
+参考实现已经能跑：存块、检索、经验记账、提议与拍板、面板界面、MCP 接入，**52 项测试通过**。代码在 [local-experience-kb-mvp](https://github.com/youyang145/local-experience-kb-mvp) 公开。
 
 阶段简称：`R0` 存储与检索跑通，`M1`/`M2` 经验块与共判，`P1`/`P2` 知识类型与两级分区。
 
 ## 验证（不是只写文档）
 
-- **测试**：51 项库测试 + 12 项端到端检查；
+- **测试**：52 项库测试 + 12 项端到端检查；
 - **规模基准**（2026-11-21，合成数据，`node scripts/bench-search.mjs`）：
 
 | 块数 | searchBlocks p95 | consult（含摘要）p95 |
