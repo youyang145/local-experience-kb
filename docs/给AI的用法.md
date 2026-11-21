@@ -69,7 +69,7 @@
 
 - 先 `initialize`，带上你的 `clientInfo`；
 - 记下响应头 `Mcp-Session-Id`，之后每个请求都带；
-- 五个工具：`kb_consult` / `kb_index` / `kb_read` / `kb_stage` / `kb_recommend`；
+- 六个工具：`kb_consult` / `kb_deep` / `kb_index` / `kb_read` / `kb_stage` / `kb_recommend`；
 - 开关关闭时返回 403；不带 session 调工具会被拒绝；
 - 调用会留痕（连接编号 + 客户端 + 工具），这是设计，不是监控。
 
