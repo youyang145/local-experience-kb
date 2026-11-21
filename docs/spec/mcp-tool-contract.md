@@ -43,6 +43,8 @@ MCP 开关默认关闭；关闭时 **POST 请求返回 403**。非 POST 请求�
 
 共 6 个：读 3 个（`kb_consult` / `kb_index` / `kb_read`）、可选深扫 1 个（`kb_deep`）、受限写 2 个（`kb_stage` / `kb_recommend`）。
 
+DSH 插件在契约之外另有 `kb_record`（宿主侧记账），所以插件显示 7 个工具；MCP 端点仍是这 6 个。
+
 ### `kb_consult`
 
 查库。只看该不该查、有哪些命中（简介），不读全文。
